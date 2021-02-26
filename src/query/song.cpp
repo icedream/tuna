@@ -329,6 +329,10 @@ void song::from_json(const QJsonObject& obj)
         }
     }
 
+    auto label = obj["label"];
+    if (label.isString())
+        set_label(label.toString());
+
     auto progress = obj["progress"];
     if (progress.isDouble())
         set_progress(progress.toInt());
